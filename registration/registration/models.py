@@ -4,7 +4,7 @@ from django.db.models.fields import CharField
 
 # Create your models here.
 
-# Implementação do modelo Funcionário e seus atributos.
+# Construção do modelo Funcionário e seus atributos.
 class Funcionario(models.Model):
     nome = models.CharField(
         max_length=255,
@@ -49,6 +49,7 @@ class Funcionario(models.Model):
         blank=False
     )
 
+    # As operações de busca no modelo são definidas através de um Manager.
     objetos = models.Manager()
 
     # A criação das tabelas no banco de dados deve ser feita com os comandos makemigrations e migrate.
