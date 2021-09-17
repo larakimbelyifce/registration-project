@@ -1,12 +1,29 @@
-# Importação da função index() definida no arquivo views.py.
+# Importação da função FuncionarioListView, definida no arquivo views.py.
+from registration.registration.models import Funcionario
+from registration.website.views import FuncionarioCreateView, FuncionarioDeleteView, FuncionarioListView
 from django.urls.conf import path
-from . import views
-
-# Definição do namespace do app website.
-app_name = 'website'
 
 # A urlpatterns contém a lista de roteamentos de URLs.
 urlpatterns = [
-    # Método GET /.
-    path('', views.index, name='index'),
+    path(
+        'funcionarios/',
+        FuncionarioListView.as_view(),
+        name='lista_funcionarios'
+    ),
+]
+
+urlpatterns = [
+    path(
+        'funcionario/excluir/<pk>',
+        FuncionarioDeleteView.as_view(),
+        name='deleta_funcionario'
+    ),
+]
+
+urlpatterns = [
+    path(
+        'funcionario/cadastrar/',
+        FuncionarioCreateView.as_view(),
+        name='cadastra_funcionario'
+    ),
 ]

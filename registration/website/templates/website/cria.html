@@ -1,0 +1,26 @@
+<form method="POST">
+    {% csrf_token %}
+
+    <label for="{{ form.nome.id_for_label }}">Nome</label>
+    {{ form.nome }}
+
+    <label for="{{ form.email.id_for_label }}">E-mail</label>
+    {{ form.email }}
+
+    <label for="{{ form.cpf.id_for_label }}">CPF</label>
+    {{ form.cpf }}
+
+    <label for="{{ form.celular.id_for_label }}">Celular</label>
+    {{ form.celular }}
+
+    <label for="{{ form.rg.id_for_label }}">RG</label>
+    {{ form.rg }}
+
+    <label for="{{ form.endereco.id_for_label }}">Endereço</label>
+    {{ form.endereco }}
+
+    <label for="{{ form.salario.id_for_label }}">Salário</label>
+    {{ form.salario }}
+
+    <button type="submit">Cadastrar</button>
+</form>
