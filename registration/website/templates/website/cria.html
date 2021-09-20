@@ -1,4 +1,6 @@
 <!-- A criação de novos funcionários será feita através de um objeto form contendo os campos do formulário. -->
+<!-- Estender do template base -->
+{% extends "website/_layouts/base.html" %}
 
 <form method="POST">
     {% csrf_token %}
