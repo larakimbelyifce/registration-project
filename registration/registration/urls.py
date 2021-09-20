@@ -19,7 +19,7 @@ from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
-    # Inclui as URLs do app 'registration'.
+    # Inclui as URLs do app 'website'.
     path('', include('website.urls', namespace='website')),
 
     # Interface administrativa.
