@@ -2,6 +2,11 @@
 <!-- Estender do template base -->
 {% extends "website/_layouts/base.html" %}
 
+{% load widget_tweaks %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
 <form method="POST">
     {% csrf_token %}
 
@@ -28,3 +33,4 @@
 
     <button type="submit">Cadastrar</button>
 </form>
+{% endblock %}
