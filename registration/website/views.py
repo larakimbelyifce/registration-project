@@ -31,6 +31,6 @@ class FuncionarioDeleteView(DeleteView):
 class FuncionarioCreateView (CreateView):
     template_name = "website/cria.html"
     model = Funcionario
-    form_class = InsereFuncionarioForm
+    #form_class = InsereFuncionarioForm
     # O método reverse_lazy() vai traduzir a View em URL. Após adicionar um funcionário, haverá um redirecionamento para a página de listagem atualizada.
     success_url = reverse_lazy("website:lista_funcionarios")
