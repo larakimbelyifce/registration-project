@@ -1,1 +1,29 @@
-<h1>Exclui</h1>
+<!-- Estender do template base -->
+{% extends "website/_layouts/base.html" %}
+
+{% block title %}Cadastro de Funcionários{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <div class="card border-dark mb-3">
+        <div class="card-body text-dark">
+          <h5 class="card-title">Exclusão de funcionário</h5>
+          <p class="card-text mb-4">Você tem certeza de que quer apagar o registro de {{ funcionario.nome }}?<br>A exclusão é irreversível.</p>
+
+          <form method="post">
+            <!-- A tag do Django {% csrf_token %} está relacionada à proteção que o Django provê ao CSRF - Cross Site Request Forgery (um tipo de ataque malicioso) -->
+            {% csrf_token %}
+
+            <div class="text-start">
+              <a href="{% url 'website:lista_funcionarios' %}" class="btn btn-outline-dark">Cancelar</a>
+              <button class="btn btn-danger">Excluir</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

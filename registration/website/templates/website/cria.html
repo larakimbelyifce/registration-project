@@ -1,36 +1,72 @@
-<!-- A criação de novos funcionários será feita através de um objeto form contendo os campos do formulário. -->
 <!-- Estender do template base -->
 {% extends "website/_layouts/base.html" %}
 
 {% load widget_tweaks %}
 
-{% block title %}Página Inicial{% endblock %}
+{% block title %}Cadastro de Funcionários{% endblock %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <div class="card border-dark mb-3">
+        <div class="card-body text-dark">
+          <h5 class="card-title">Registrar um funcionário</h5>
+          <p class="card-text">Acesse o formulário para registrar um novo funcionário.</p>
 
-    <label for="{{ form.nome.id_for_label }}">Nome</label>
-    {{ form.nome }}
+          <form method="post">
+            <!-- A tag do Django {% csrf_token %} está relacionada à proteção que o Django provê ao CSRF - Cross Site Request Forgery (um tipo de ataque malicioso) -->
+            {% csrf_token %}
 
-    <label for="{{ form.email.id_for_label }}">E-mail</label>
-    {{ form.email }}
+            <!-- Nome -->
+            <div class="input-group mb-3">
+              <span class="input-group-text">Nome</span>
+              {% render_field form.nome class+="form-control" %}
+            </div>
 
-    <label for="{{ form.cpf.id_for_label }}">CPF</label>
-    {{ form.cpf }}
+            <!-- Email -->
+            <div class="input-group mb-3">
+              <span class="input-group-text">E-mail</span>
+              {% render_field form.email class+="form-control" %}
+            </div>
 
-    <label for="{{ form.celular.id_for_label }}">Celular</label>
-    {{ form.celular }}
+            <!-- CPF -->
+            <div class="input-group mb-3">
+              <span class="input-group-text">CPF</span>
+              {% render_field form.cpf class+="form-control" %}
+            </div>
 
-    <label for="{{ form.rg.id_for_label }}">RG</label>
-    {{ form.rg }}
+            <!-- Celular -->
+            <div class="input-group mb-3">
+              <span class="input-group-text">Celular</span>
+              {% render_field form.celular class+="form-control" %}
+            </div>
 
-    <label for="{{ form.endereco.id_for_label }}">Endereço</label>
-    {{ form.endereco }}
+            <!-- RG -->
+            <div class="input-group mb-3">
+              <span class="input-group-text">RG</span>
+              {% render_field form.rg class+="form-control" %}
+            </div>
 
-    <label for="{{ form.salario.id_for_label }}">Salário</label>
-    {{ form.salario }}
+            <!-- Endereço -->
+            <div class="input-group mb-3">
+              <span class="input-group-text">Endereço</span>
+              {% render_field form.endereco class+="form-control" %}
+            </div>
 
-    <button type="submit">Cadastrar</button>
-</form>
+            <!-- Salário -->
+            <div class="input-group mb-3">
+              <span class="input-group-text">Salário</span>
+              {% render_field form.salario class+="form-control" %}
+            </div>
+            <div class="text-start">
+              <a href="{% url 'website:index' %}" class="btn btn-outline-dark">Home</a>
+              <button class="btn btn-dark">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
